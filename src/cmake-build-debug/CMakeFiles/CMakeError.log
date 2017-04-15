@@ -1,0 +1,26 @@
+Detecting C [-std=c11] compiler features failed to compile with the following output:
+Change Dir: E:/Me/Courses/UDACITY Self-Drive Car Nanodegree/TERM 2/Projects/Project 1 # Extended Kalman Filter Project/CarND-Extended-Kalman-Filter-Project-master/src/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_afea0/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_afea0.dir\build.make CMakeFiles/cmTC_afea0.dir/build
+mingw32-make.exe[1]: Entering directory 'E:/Me/Courses/UDACITY Self-Drive Car Nanodegree/TERM 2/Projects/Project 1 # Extended Kalman Filter Project/CarND-Extended-Kalman-Filter-Project-master/src/cmake-build-debug/CMakeFiles/CMakeTmp'
+mingw32-make.exe[1]: Leaving directory 'E:/Me/Courses/UDACITY Self-Drive Car Nanodegree/TERM 2/Projects/Project 1 # Extended Kalman Filter Project/CarND-Extended-Kalman-Filter-Project-master/src/cmake-build-debug/CMakeFiles/CMakeTmp'
+mingw32-make.exe[1]: *** No rule to make target 'E:/Me/Courses/UDACITY Self-Drive Car Nanodegree/TERM 2/Projects/Project 1\', needed by 'CMakeFiles/cmTC_afea0.dir/feature_tests.c.obj'.  Stop.
+Makefile:125: recipe for target 'cmTC_afea0/fast' failed
+mingw32-make.exe: *** [cmTC_afea0/fast] Error 2
+
+
+
+Detecting CXX [-std=c++14] compiler features failed to compile with the following output:
+Change Dir: E:/Me/Courses/UDACITY Self-Drive Car Nanodegree/TERM 2/Projects/Project 1 # Extended Kalman Filter Project/CarND-Extended-Kalman-Filter-Project-master/src/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_a5f6e/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_a5f6e.dir\build.make CMakeFiles/cmTC_a5f6e.dir/build
+mingw32-make.exe[1]: Entering directory 'E:/Me/Courses/UDACITY Self-Drive Car Nanodegree/TERM 2/Projects/Project 1 # Extended Kalman Filter Project/CarND-Extended-Kalman-Filter-Project-master/src/cmake-build-debug/CMakeFiles/CMakeTmp'
+mingw32-make.exe[1]: Leaving directory 'E:/Me/Courses/UDACITY Self-Drive Car Nanodegree/TERM 2/Projects/Project 1 # Extended Kalman Filter Project/CarND-Extended-Kalman-Filter-Project-master/src/cmake-build-debug/CMakeFiles/CMakeTmp'
+mingw32-make.exe[1]: *** No rule to make target 'E:/Me/Courses/UDACITY Self-Drive Car Nanodegree/TERM 2/Projects/Project 1\', needed by 'CMakeFiles/cmTC_a5f6e.dir/feature_tests.cxx.obj'.  Stop.
+Makefile:125: recipe for target 'cmTC_a5f6e/fast' failed
+mingw32-make.exe: *** [cmTC_a5f6e/fast] Error 2
+
+
+
