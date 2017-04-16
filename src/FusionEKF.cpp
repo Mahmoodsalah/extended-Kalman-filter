@@ -40,9 +40,7 @@ FusionEKF::FusionEKF() {
           0, 0, 0, 0,
           0, 0, 0, 0;
 
-  // process noise
-  noise_ax = 9;
-  noise_ay = 9;
+
 
 }
 
@@ -119,6 +117,10 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
      * Update the process noise covariance matrix.
      * Use noise_ax = 9 and noise_ay = 9 for your Q matrix.
    */
+  // process noise
+  float noise_ax = 9;
+  float noise_ay = 9;
+
   //compute the time elapsed between the current and previous measurements
   double dt = (measurement_pack.timestamp_ - previous_timestamp_) / 1000000.0;	//dt - expressed in seconds
   previous_timestamp_ = measurement_pack.timestamp_;
