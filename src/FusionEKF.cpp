@@ -31,13 +31,19 @@ FusionEKF::FusionEKF() {
         0, 0.0009, 0,
         0, 0, 0.09;
 
-  /**
-  TODO:
-    * Finish initializing the FusionEKF.
-    * Set the process and measurement noises
-  */
+  // measurement matrix - laser
+  H_laser_ << 1, 0, 0, 0,
+          0, 1, 0, 0;
 
+  // initialize jacobian matrix - Radar. Will be later updated
+  Hj_ << 0, 0, 0, 0,
+          0, 0, 0, 0,
+          0, 0, 0, 0;
 
+  // process noise
+  noise_ax = 9;
+  noise_ay = 9;
+  
 }
 
 /**
