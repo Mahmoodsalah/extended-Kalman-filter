@@ -57,33 +57,32 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
  *******************************************************************************/
 MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
 
-    MatrixXd Hj = MatrixXd(3,4);
-    //recover state parameters
-    float px = x_state(0);
-    float py = x_state(1);
-    float vx = x_state(2);
-    float vy = x_state(3);
-
-    //pre-compute a set of terms to avoid repeated calculation
-    float c1 = px*px+py*py;
-    float c2 = sqrt(c1);
-    float c3 = (c1*c2);
-
-    //check division by zero
-    if(fabs(c1) < 0.0000001){
-        std::cout << "CalculateJacobian () - Error - Division by Zero" << std::endl;
-        float big = 1e15;
-        Hj << big, big, 0, 0,
-                -big, big, 0, 0,
-                big, big, big, big;
-
+    double px = x_state(0);
+    double py = x_state(1);
+    double vx = x_state(2);
+    double vy = x_state(3);
+    MatrixXd Hj = MatrixXd::Zero(3,4);
+    double dist = sqrt(pow(px,2) + pow(py,2));
+    double dist_2 = dist*dist;
+    double dist_3 = dist_2*dist;
+    double cross_mult = vx*py - vy*px;
+    double px_dist = px/dist;
+    double py_dist = py/dist;
+    float tol = 0.00001;
+    if (dist < tol) {
+        Hj << 0, 0, 0, 0,
+                1e+9, 1e+9, 0, 0,
+                0, 0, 0, 0;
         return Hj;
     }
-
-    //compute the Jacobian matrix
-    Hj << (px/c2), (py/c2), 0, 0,
-            -(py/c1), (px/c1), 0, 0,
-            py*(vx*py - vy*px)/c3, px*(px*vy - py*vx)/c3, px/c2, py/c2;
+    Hj(0,0) = px_dist;
+    Hj(0,1) = py_dist;
+    Hj(1,0) = -py/dist_2;
+    Hj(1,1) = px/dist_2;
+    Hj(2,0) = py*cross_mult/dist_3;
+    Hj(2,1) = -px*cross_mult/dist_3;
+    Hj(2,2) = px_dist;
+    Hj(2,3) = py_dist;
 
     return Hj;
 }
