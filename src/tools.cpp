@@ -63,18 +63,19 @@ MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
     double vy = x_state(3);
     MatrixXd Hj = MatrixXd::Zero(3,4);
     double dist = sqrt(pow(px,2) + pow(py,2));
+
+    //check zero cases
+    float tol = 0.00001;
+    if (dist < tol) {
+        dist = tol;
+    }
+
     double dist_2 = dist*dist;
     double dist_3 = dist_2*dist;
     double cross_mult = vx*py - vy*px;
     double px_dist = px/dist;
     double py_dist = py/dist;
-    float tol = 0.00001;
-    if (dist < tol) {
-        Hj << 0, 0, 0, 0,
-                1e+9, 1e+9, 0, 0,
-                0, 0, 0, 0;
-        return Hj;
-    }
+
     Hj(0,0) = px_dist;
     Hj(0,1) = py_dist;
     Hj(1,0) = -py/dist_2;
